@@ -107,13 +107,14 @@ spec:
           - name: HTTP_PORT
             value: "8081"
 ```
-обновление с 1.19 на 1.20:
+обновление с 1.19 на 1.20:  
 
 <img width="746" height="193" alt="image" src="https://github.com/user-attachments/assets/feb6dc2b-7dac-4b68-8888-a06aab732f54" />
 <img width="743" height="324" alt="image" src="https://github.com/user-attachments/assets/e8dd2a95-4a31-45ac-b191-c6d2f6bd1ca2" />
 
 
-обновление с 1.19 на 1.38:
+обновление с 1.19 на 1.38:  
+
 <img width="743" height="213" alt="image" src="https://github.com/user-attachments/assets/7e849894-6cad-46b7-b676-cb536106a1a2" />
 
 Откат
