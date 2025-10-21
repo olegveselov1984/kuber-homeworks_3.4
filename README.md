@@ -72,6 +72,56 @@ spec:
 3. Попытаться обновить nginx до версии 1.28, приложение должно оставаться доступным.
 4. Откатиться после неудачного обновления.
 
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netology-deployment
+  labels:
+    app: main
+spec:
+  replicas: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  selector:
+    matchLabels:
+      app: main
+  template:
+    metadata:
+      labels:
+        app: main
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.20
+        ports:
+        - containerPort: 8080
+      - name: network-multitool
+        image: wbitt/network-multitool
+        # ports:
+        # - containerPort: 8085
+        env:
+          - name: HTTP_PORT
+            value: "8081"
+```
+обновление с 1.19 на 1.20:  
+
+<img width="746" height="193" alt="image" src="https://github.com/user-attachments/assets/feb6dc2b-7dac-4b68-8888-a06aab732f54" />
+<img width="743" height="324" alt="image" src="https://github.com/user-attachments/assets/e8dd2a95-4a31-45ac-b191-c6d2f6bd1ca2" />
+
+
+обновление с 1.19 на 1.38:  
+
+<img width="743" height="213" alt="image" src="https://github.com/user-attachments/assets/7e849894-6cad-46b7-b676-cb536106a1a2" />
+
+Откат
+
+<img width="813" height="395" alt="image" src="https://github.com/user-attachments/assets/628310a0-ee27-4649-8f17-1631ae2df777" />
+
+
 ## Дополнительные задания — со звёздочкой*
 
 Задания дополнительные, необязательные к выполнению, они не повлияют на получение зачёта по домашнему заданию. **Но мы настоятельно рекомендуем вам выполнять все задания со звёздочкой.** Это поможет лучше разобраться в материале.   
